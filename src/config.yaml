@@ -1,0 +1,45 @@
+# @Author: xiaocao
+# @Date:   2023-04-27 19:22:42
+# @Last Modified by:   xiaocao
+# @Last Modified time: 2023-05-12 10:31:44
+
+
+accounts:
+  # 第一个账号
+  - 
+    username: 17795093815
+    password: 123456
+  
+  # 第二个账号
+  # - 
+  #   username: 123
+  #   password: 123
+  
+  # 第N个账号
+  #  - 
+  #   username: 123
+  #   password: 123
+     
+
+config:
+
+  # chrome 浏览器路径  务必为113版本 下载地址：https://edgedl.me.gvt1.com/edgedl/release2/chrome/kh3izh656qcyneaxk63bczq2na_113.0.5672.63/113.0.5672.63_chrome_installer.exe
+  chrome_host: 
+  # chrome_host 与  {chrome_path 和 chrome_driver_path}  选填其一
+  chrome_path: D:\software\chrome\Chrome-bin\chrome.exe
+  chrome_driver_path: ..\driver\windows\chromedriver.exe
+  
+  task_time: 9  # 保活次数 默认即可
+  keep_live_time: 2  # 秒 单个任务时长 默认即可
+
+  
+  options:
+    # - --headless   # 无头浏览器  隐藏界面运行
+    - --no-sandbox # sandbox 运行  
+    - --blink-settings=imagesEnabled=false # 禁止加载图片
+    - --disable-gpu #禁用gpu 
+    - --mute-audio # 禁用声音
+    # 模拟ios微信浏览器
+    - --user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 7_1_2 like Mac OS X) > AppleWebKit/537.51.2 (KHTML, like Gecko) Mobile/11D257 > MicroMessenger/6.0.1 NetType/WIFI
+    - log-level=1 #日志等级 0 1 2 3
+    - --disable-dev-shm-usage

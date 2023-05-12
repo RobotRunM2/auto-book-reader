@@ -1,0 +1,29 @@
+# @Author: xiaocao
+# @Date:   2023-05-10 21:11:47
+# @Last Modified by:   xiaocao
+# @Last Modified time: 2023-05-12 10:23:37
+
+version: '3'
+services:
+
+  reader:
+    build: .
+    volumes:
+      - ~/book_reader/src/:/book_reader/src/
+    depends_on:
+      - selenuim-chrome
+    restart: always
+
+    entrypoint: sh /book_reader/entrypoint.sh -d selenuim-chrome:4444 -c ./start.bin
+
+  selenuim-chrome:
+    image: "selenium/standalone-chrome"
+    expose:
+      - "4444"
+      - "7900"
+    ports:
+      - 4444:4444
+      
+    shm_size: '2gb'
+    
+    restart: always
