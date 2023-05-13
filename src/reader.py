@@ -2,7 +2,7 @@
 # @Author: xiaocao
 # @Date:   2023-04-26 13:30:00
 # @Last Modified by:   xiaocao
-# @Last Modified time: 2023-05-11 16:30:06
+# @Last Modified time: 2023-05-13 08:50:37
 
 import contextlib
 import random
@@ -247,7 +247,7 @@ class Reader(object):
         self.browser.get(sign_in_url)
         time.sleep(0.5)
         # 点击签到按钮
-        self._find_and_click_ex("//body/div[@id='app']/div[1]/div[3]/img[1]")
+        self._find_and_click_ex("//body/div[@id='app']/div[1]/div[3]")
 
         time.sleep(0.5)
 
