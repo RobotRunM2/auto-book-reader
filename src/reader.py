@@ -2,7 +2,7 @@
 # @Author: xiaocao
 # @Date:   2023-04-26 13:30:00
 # @Last Modified by:   xiaocao
-# @Last Modified time: 2023-05-13 08:50:37
+# @Last Modified time: 2023-05-13 11:51:58
 
 import contextlib
 import random
@@ -301,18 +301,16 @@ class Reader(object):
 
         listen_book_url = "http://wk5.bookan.com.cn/?id=26124#/voice/24"
         self.browser.get(listen_book_url)
+
         # 选书
-
-        self._find_and_click_ex(
-            "//body/div[@id='app']/div[2]/div[2]/dl[1]/dd[1]/a[1]/span[1]"
-        )
-
-        time.sleep(0.5)
+        self._find_and_click_ex("//*[@id='app']/div[2]/div[2]/dl[2]/dd/a[2]")
 
         # 开始听书
         self._find_and_click_ex("//span[contains(text(),'开始听')]")
 
-        time.sleep(0.5)
+        # 如果没播放 点击播放
+        with contextlib.suppress(Exception):
+            self._find_element_ex("//i[contains(text(),'')]").click()
 
         # 展开界面
         self._find_and_click_ex("//body/div[@id='app']/div[3]/i[1]")
@@ -415,11 +413,12 @@ class Reader(object):
 
     def test(self):
         self._login()
-        self.browser.get("https://weixin.bookan.com.cn/read6/?id=26124#/")
-        self._find_and_click_ex("//body/div[@id='app']/div[1]/div[1]/img[1]")
-        self._find_and_click_ex("//body/div[@id='app']/div[1]/div[3]/div[1]/div[2]")
+        self.run_task_listen_book()
 
     def run(self):
+        self.test()
+        return
+
         from itertools import cycle
 
         task_data_cycle_iter = cycle(self.task_data.values())
