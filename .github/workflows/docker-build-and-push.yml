@@ -1,7 +1,7 @@
 # @Author: xiaocao
 # @Date:   2023-04-18 22:08:30
 # @Last Modified by:   xiaocao
-# @Last Modified time: 2023-04-27 18:11:58
+# @Last Modified time: 2023-05-13 10:39:03
 
 name: ci
 
@@ -23,8 +23,8 @@ jobs:
         name: Build & push Docker image
         with:
           image: wdjoys/mk_book_reader
-          tags: v1, latest
+          tags: ${{ github.ref_name }} , latest
           registry: docker.io
-          dockerfile: dockerfile
+          dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
