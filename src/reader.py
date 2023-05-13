@@ -2,7 +2,7 @@
 # @Author: xiaocao
 # @Date:   2023-04-26 13:30:00
 # @Last Modified by:   xiaocao
-# @Last Modified time: 2023-05-13 11:51:58
+# @Last Modified time: 2023-05-13 20:45:33
 
 import contextlib
 import random
@@ -416,8 +416,8 @@ class Reader(object):
         self.run_task_listen_book()
 
     def run(self):
-        self.test()
-        return
+        # self.test()
+        # return
 
         from itertools import cycle
 
