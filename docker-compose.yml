@@ -7,7 +7,8 @@ version: '3'
 services:
 
   reader:
-    build: .
+    #build: .
+    images: "wdjoys/mk_book_reader"
     volumes:
       - ~/book_reader/src/:/book_reader/src/
     depends_on:

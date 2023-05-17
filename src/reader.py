@@ -2,7 +2,7 @@
 # @Author: xiaocao
 # @Date:   2023-04-26 13:30:00
 # @Last Modified by:   xiaocao
-# @Last Modified time: 2023-05-13 20:45:33
+# @Last Modified time: 2023-05-17 10:10:03
 
 import contextlib
 import random
@@ -207,8 +207,9 @@ class Reader(object):
 
         with contextlib.suppress(Exception):
             self._find_and_click_ex("//span[contains(text(),'安全退出')]")
-            time.sleep(0.5)
-            self._click_page(326, 453)
+            time.sleep(0.8)
+            self._find_and_click_ex("//span[contains(text(),'确认')]")
+            time.sleep(1)
             self.browser.get(login_url)
 
         elem_input_username = self._find_element_ex(
